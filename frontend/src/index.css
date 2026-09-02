@@ -1,0 +1,368 @@
+:root {
+  --bg: #0d0b14;
+  --card-bg: #171426;
+  --card-bg-2: #1c1830;
+  --border: #2c2645;
+  --text: #b3aec4;
+  --text-h: #ffffff;
+  --accent: #8b5cf6;
+  --accent-2: #22d3ee;
+  --accent-bg: rgba(139, 92, 246, 0.12);
+  --gradient: linear-gradient(90deg, #8b5cf6, #22d3ee);
+
+  font: 16px/1.5 system-ui, "Segoe UI", Roboto, sans-serif;
+  color-scheme: dark;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1, h2 {
+  color: var(--text-h);
+  font-weight: 700;
+}
+
+.brand-accent {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.app-header {
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px;
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-h);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.brand-note {
+  font-size: 18px;
+}
+
+.app-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* ---- Hero section ---- */
+
+.hero-section {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.hero-panel {
+  flex: 1 1 380px;
+  min-width: 300px;
+  background: radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.18), transparent 60%),
+              radial-gradient(circle at 80% 80%, rgba(34, 211, 238, 0.14), transparent 55%),
+              var(--card-bg-2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-notes {
+  font-size: 20px;
+  opacity: 0.6;
+  margin-bottom: 8px;
+}
+
+.hero-logo {
+  font-size: 42px;
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+}
+
+.hero-tagline {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 0 0 16px;
+}
+
+.hero-instruction {
+  font-size: 15px;
+  color: var(--accent-2);
+  font-style: italic;
+  margin: 0 0 28px;
+  line-height: 1.5;
+}
+
+.hero-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.hero-feature {
+  text-align: left;
+}
+.hero-feature-icon {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+.hero-feature-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-h);
+}
+.hero-feature-desc {
+  font-size: 12px;
+  color: var(--text);
+  margin-top: 2px;
+}
+
+/* ---- Form ---- */
+
+.lyrics-form {
+  flex: 1 1 440px;
+  min-width: 320px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.lyrics-form h2 {
+  margin: 0 0 4px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.form-note {
+  font-size: 20px;
+}
+
+.form-subtitle {
+  color: var(--text);
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+input, select, textarea, button {
+  font: inherit;
+}
+
+input, select, textarea {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+  width: 100%;
+}
+textarea {
+  resize: vertical;
+}
+select {
+  cursor: pointer;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+.field-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.char-counter {
+  position: absolute;
+  right: 4px;
+  bottom: -18px;
+  font-size: 12px;
+  color: var(--text);
+}
+
+.field-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.field-row .field {
+  flex: 1;
+  min-width: 160px;
+}
+
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  background: var(--accent-bg);
+  color: var(--text-h);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.chip-selected {
+  background: var(--gradient);
+  border-color: transparent;
+  color: #fff;
+  font-weight: 700;
+}
+
+.generate-button {
+  margin-top: 6px;
+  background: var(--gradient);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.generate-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ---- Song list ---- */
+
+.song-list-section {
+  margin-top: 32px;
+}
+
+.song-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.song-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card-bg);
+}
+
+.song-list .song-link {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: var(--text-h);
+}
+
+.song-title {
+  font-weight: 700;
+}
+.song-meta {
+  font-size: 13px;
+  color: var(--text);
+}
+
+.delete-button {
+  background: transparent;
+  color: #f87171;
+  border: 1px solid #f8717155;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-right: 14px;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+.delete-button:hover:not(:disabled) {
+  background: #f8717115;
+}
+
+/* ---- Song detail ---- */
+
+.song-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-link {
+  color: var(--accent-2);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.song-subheading {
+  color: var(--text);
+  margin: 8px 0 24px;
+  font-size: 14px;
+}
+
+.lyrics-display {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.lyrics-section-label {
+  color: var(--accent-2);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 20px;
+}
+.lyrics-section-label:first-child {
+  margin-top: 0;
+}
+
+.lyrics-line {
+  color: var(--text-h);
+}
+
+.error {
+  color: #f87171;
+  font-weight: 600;
+  margin: 4px 0;
+}
