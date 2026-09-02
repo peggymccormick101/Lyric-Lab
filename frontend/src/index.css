@@ -71,7 +71,7 @@ h1, h2 {
 }
 
 .hero-panel {
-  flex: 1 1 380px;
+  flex: 1.15 1 460px;
   min-width: 300px;
   aspect-ratio: 3 / 2;
   border-radius: 16px;
