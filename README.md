@@ -1,5 +1,7 @@
 # LyricLab
 
+Link: https://lyriclab-uur3.onrender.com/
+
 Describe a song — topic, genre, mood, style, perspective — and get original,
 ready-to-sing lyrics with a title, powered by Claude.
 
