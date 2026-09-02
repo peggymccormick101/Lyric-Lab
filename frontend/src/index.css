@@ -71,7 +71,7 @@ h1, h2 {
 }
 
 .hero-panel {
-  flex: 1 1 380px;
+  flex: 1.15 1 460px;
   min-width: 300px;
   aspect-ratio: 3 / 2;
   border-radius: 16px;
@@ -315,4 +315,79 @@ button {
   color: #f87171;
   font-weight: 600;
   margin: 4px 0;
+}
+
+/* ---- Lyrics revision chat ---- */
+
+.song-detail section + section {
+  margin-top: 28px;
+}
+
+.chat-box {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.chat-empty {
+  font-size: 14px;
+  color: var(--text);
+}
+.chat-message {
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: left;
+  max-width: 85%;
+}
+.chat-user {
+  background: var(--accent-bg);
+  align-self: flex-end;
+}
+.chat-assistant {
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+.chat-role {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+.chat-message p {
+  margin: 2px 0 0;
+  color: var(--text-h);
+  white-space: pre-wrap;
+}
+.chat-thinking {
+  font-style: italic;
+  opacity: 0.7;
+}
+.chat-input {
+  display: flex;
+  gap: 8px;
+}
+.chat-input input {
+  flex: 1;
+}
+.chat-input button {
+  background: var(--gradient);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0 18px;
+  font-weight: 700;
+}
+.chat-input button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

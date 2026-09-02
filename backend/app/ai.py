@@ -104,3 +104,72 @@ def generate_lyrics(
             return block.input
 
     raise RuntimeError("Claude did not return song lyrics.")
+
+
+REVISE_TOOL = {
+    "name": "submit_lyrics_revision",
+    "description": "Submit a revised version of the song lyrics based on the user's requested change.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "title": {
+                "type": "string",
+                "description": (
+                    "The song title — keep the existing title unless the "
+                    "user's request implies it should change."
+                ),
+            },
+            "lyrics": {
+                "type": "string",
+                "description": (
+                    "The FULL updated lyrics, not just the changed part. Same "
+                    "formatting rules as before: bracketed section labels on "
+                    "their own line (e.g. [Verse 1], [Chorus]), blank line "
+                    "between sections, actual newline characters."
+                ),
+            },
+            "reply": {
+                "type": "string",
+                "description": (
+                    "A short, friendly 1-3 sentence chat reply describing what "
+                    "you changed, to show the user in a chat log. Do not "
+                    "repeat the full lyrics here."
+                ),
+            },
+        },
+        "required": ["title", "lyrics", "reply"],
+    },
+}
+
+
+def revise_lyrics(song_context: str, history: list[dict], message: str) -> dict:
+    client = get_client()
+
+    messages = [{"role": m["role"], "content": m["content"]} for m in history]
+    messages.append({"role": "user", "content": message})
+
+    response = client.messages.create(
+        model=MODEL,
+        max_tokens=2048,
+        system=(
+            "You are LyricLab, an assistant that writes and revises original "
+            "song lyrics. Here is the song as it currently stands:\n\n"
+            + song_context
+            + "\n\nThe user will ask for changes to the lyrics (e.g. change a "
+            "line, make a section more upbeat, add a bridge, change the "
+            "ending). Apply their request and return the complete updated "
+            "lyrics — not just the changed lines — keeping everything else "
+            "consistent with the song's genre, mood, style, and perspective "
+            "unless asked otherwise. Always respond by calling the "
+            "submit_lyrics_revision tool."
+        ),
+        tools=[REVISE_TOOL],
+        tool_choice={"type": "tool", "name": "submit_lyrics_revision"},
+        messages=messages,
+    )
+
+    for block in response.content:
+        if block.type == "tool_use" and block.name == "submit_lyrics_revision":
+            return block.input
+
+    raise RuntimeError("Claude did not return a lyrics revision.")
