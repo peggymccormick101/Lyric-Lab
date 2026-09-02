@@ -28,6 +28,15 @@ class SongListItem(BaseModel):
     length: str
 
 
+class MessageOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    role: str
+    content: str
+    created_at: datetime
+
+
 class SongDetail(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
@@ -42,3 +51,12 @@ class SongDetail(BaseModel):
     length: str
     title: Optional[str] = None
     lyrics: Optional[str] = None
+    messages: list[MessageOut] = []
+
+
+class ReviseRequest(BaseModel):
+    message: str = Field(min_length=1, max_length=1000)
+
+
+class ReviseResponse(BaseModel):
+    reply: str

@@ -37,3 +37,10 @@ export function getSong(id) {
 export function deleteSong(id) {
   return request(`/songs/${id}`, { method: "DELETE" });
 }
+
+export function reviseSong(id, message) {
+  return request(`/songs/${id}/revise`, {
+    method: "POST",
+    body: JSON.stringify({ message }),
+  });
+}
