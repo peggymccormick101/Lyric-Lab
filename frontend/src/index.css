@@ -71,7 +71,7 @@ h1, h2 {
 }
 
 .hero-panel {
-  flex: 1.15 1 460px;
+  flex: 1.6 1 540px;
   min-width: 300px;
   aspect-ratio: 3 / 2;
   border-radius: 16px;
@@ -89,7 +89,7 @@ h1, h2 {
 /* ---- Form ---- */
 
 .lyrics-form {
-  flex: 1 1 440px;
+  flex: 1 1 400px;
   min-width: 320px;
   background: var(--card-bg);
   border: 1px solid var(--border);
